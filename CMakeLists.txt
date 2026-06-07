@@ -3,4 +3,4 @@ project(ebpf_Agent C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(ebpf_Agent main.c)
+add_executable(ebpf_Agent collector/main.c)
