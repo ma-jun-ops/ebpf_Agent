@@ -9,8 +9,7 @@ add_executable(ebpf_Agent
 )
 
 target_include_directories(ebpf_Agent PRIVATE
-        collector
-        ebpf
+        include
 )
 
 target_link_libraries(ebpf_Agent

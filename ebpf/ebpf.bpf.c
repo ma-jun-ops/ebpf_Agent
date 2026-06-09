@@ -1,16 +1,10 @@
-#include "vmlinux.h"
-#include <bpf/bpf_helpers.h>
+#include "../include/common.bpf.h"
 #include <bpf/bpf_tracing.h>
-#include "common.h"
+#include "../include/common.h"
+#include "../include/vmlinux.h"
+
 
 char LICENSE[] SEC("license") = "GPL";
-
-
-//Ringbuffer
-struct {
-    __uint(type, BPF_MAP_TYPE_RINGBUF);
-    __uint(max_entries, 256*1024);
-} rb SEC(".maps");
 
 
 
@@ -22,13 +16,13 @@ int trace_execve(struct trace_event_raw_sys_enter *ctx)
     long ret;
 
     e = bpf_ringbuf_reserve(&rb, sizeof(*e), 0);
-    if (!e) {
-        bpf_printk("ringbuf reserve failed\n");
+    if (!e)
         return 0;
-    }
 
     //清零结构体process_event
     __builtin_memset(e, 0, sizeof(*e));
+
+    e->type = EVENT_EXECVE;
 
     //63                     32 31                  0
     //+-----------------------+---------------------+
@@ -50,14 +44,6 @@ int trace_execve(struct trace_event_raw_sys_enter *ctx)
 
     if (ret < 0)
         e->filename[0] = '\0';
-
-    bpf_printk(
-        "[EXEC] tgid=%d pid=%d comm=%s path=%s\n",
-        e->tgid,
-        e->pid,
-        e->comm,
-        e->filename
-    );
 
     bpf_ringbuf_submit(e, 0);
 

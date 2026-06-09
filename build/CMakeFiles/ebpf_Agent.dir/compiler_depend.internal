@@ -3,8 +3,10 @@
 
 CMakeFiles/ebpf_Agent.dir/collector/main.c.o
  /home/shengge/project/CLionProjects/ebpf_Agent/collector/main.c
- /home/shengge/project/CLionProjects/ebpf_Agent/ebpf/common.h
- /home/shengge/project/CLionProjects/ebpf_Agent/collector/ebpf.skel.h
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/common.h
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/ebpf.skel.h
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/file.skel.h
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/net.skel.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h

@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/shengge/project/CLionProjects/ebpf_Agent/collector -I/home/shengge/project/CLionProjects/ebpf_Agent/ebpf
+C_INCLUDES = -I/home/shengge/project/CLionProjects/ebpf_Agent/include
 
 C_FLAGS = -std=gnu99
 

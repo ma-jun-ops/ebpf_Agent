@@ -1,7 +1,7 @@
 CMakeFiles/ebpf_Agent.dir/collector/main.c.o: \
  /home/shengge/project/CLionProjects/ebpf_Agent/collector/main.c \
  /usr/include/stdc-predef.h \
- /home/shengge/project/CLionProjects/ebpf_Agent/collector/ebpf.skel.h \
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/ebpf.skel.h \
  /usr/include/errno.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -74,11 +74,13 @@ CMakeFiles/ebpf_Agent.dir/collector/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h /usr/include/bpf/libbpf_version.h \
- /usr/include/bpf/libbpf_legacy.h /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/bpf/libbpf_legacy.h \
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/file.skel.h \
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/net.skel.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /home/shengge/project/CLionProjects/ebpf_Agent/collector/../ebpf/common.h
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/common.h
