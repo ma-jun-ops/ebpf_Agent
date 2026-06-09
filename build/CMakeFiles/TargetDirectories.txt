@@ -1,0 +1,3 @@
+/home/shengge/project/CLionProjects/ebpf_Agent/build/CMakeFiles/ebpf_Agent.dir
+/home/shengge/project/CLionProjects/ebpf_Agent/build/CMakeFiles/edit_cache.dir
+/home/shengge/project/CLionProjects/ebpf_Agent/build/CMakeFiles/rebuild_cache.dir
