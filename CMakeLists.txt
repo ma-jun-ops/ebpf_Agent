@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(ebpf_Agent
         collector/main.c
+        analyzer/analyzer.c
 )
 
 target_include_directories(ebpf_Agent PRIVATE

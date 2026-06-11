@@ -83,4 +83,6 @@ CMakeFiles/ebpf_Agent.dir/collector/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/common.h \
+ /home/shengge/project/CLionProjects/ebpf_Agent/include/analyzer.h \
  /home/shengge/project/CLionProjects/ebpf_Agent/include/common.h

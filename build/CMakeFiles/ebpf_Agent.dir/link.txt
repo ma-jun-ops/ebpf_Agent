@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/ebpf_Agent.dir/collector/main.c.o -o ebpf_Agent  -lbpf -lelf -lz 
+/usr/bin/cc CMakeFiles/ebpf_Agent.dir/collector/main.c.o CMakeFiles/ebpf_Agent.dir/analyzer/analyzer.c.o -o ebpf_Agent  -lbpf -lelf -lz 

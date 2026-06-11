@@ -129,6 +129,30 @@ ebpf_Agent/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ebpf_Agent.dir/build.make CMakeFiles/ebpf_Agent.dir/build
 .PHONY : ebpf_Agent/fast
 
+analyzer/analyzer.o: analyzer/analyzer.c.o
+.PHONY : analyzer/analyzer.o
+
+# target to build an object file
+analyzer/analyzer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ebpf_Agent.dir/build.make CMakeFiles/ebpf_Agent.dir/analyzer/analyzer.c.o
+.PHONY : analyzer/analyzer.c.o
+
+analyzer/analyzer.i: analyzer/analyzer.c.i
+.PHONY : analyzer/analyzer.i
+
+# target to preprocess a source file
+analyzer/analyzer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ebpf_Agent.dir/build.make CMakeFiles/ebpf_Agent.dir/analyzer/analyzer.c.i
+.PHONY : analyzer/analyzer.c.i
+
+analyzer/analyzer.s: analyzer/analyzer.c.s
+.PHONY : analyzer/analyzer.s
+
+# target to generate assembly for a file
+analyzer/analyzer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ebpf_Agent.dir/build.make CMakeFiles/ebpf_Agent.dir/analyzer/analyzer.c.s
+.PHONY : analyzer/analyzer.c.s
+
 collector/main.o: collector/main.c.o
 .PHONY : collector/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ebpf_Agent"
+	@echo "... analyzer/analyzer.o"
+	@echo "... analyzer/analyzer.i"
+	@echo "... analyzer/analyzer.s"
 	@echo "... collector/main.o"
 	@echo "... collector/main.i"
 	@echo "... collector/main.s"
