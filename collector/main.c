@@ -6,85 +6,33 @@
 #include <bpf/libbpf.h>
 #include "common.h"
 #include <stdarg.h>
+#include "analyzer.h"
+#include <string.h>
 
-//日至
+// 日志（静默，需调试时去掉注释）
 static int libbpf_print_fn(enum libbpf_print_level level,
                            const char *format,
                            va_list args)
 {
-    return vfprintf(stderr, format, args);
-}
-
-//回调函数
-static int handle_event(void *ctx, void *data, size_t data_sz)
-{
-    const struct process_event *e = data;
-    switch (e->type) {
-        case EVENT_EXECVE:
-            printf(
-                "[EXECVE] "
-                "TGID=%u PID=%u COMM=%s PATH=%s\n",
-                e->tgid,
-                e->pid,
-                e->comm,
-                e->filename
-            );
-            break;
-        case EVENT_OPENAT:
-            printf(
-                "[OPEN] "
-                "TGID=%u PID=%u COMM=%s FILE=%s\n",
-                e->tgid,
-                e->pid,
-                e->comm,
-                e->filename
-            );
-            break;
-        case EVENT_UNLINK:
-            printf(
-                "[DELETE] "
-                "TGID=%u PID=%u COMM=%s FILE=%s\n",
-                e->tgid,
-                e->pid,
-                e->comm,
-                e->filename
-            );
-            break;
-        case EVENT_CONNECT:
-        {
-            unsigned int ip = e->ip;
-            printf(
-                "[CONNECT] "
-                "PID=%u COMM=%s "
-                "IP=%u.%u.%u.%u "
-                "PORT=%u\n",
-                e->tgid,
-                e->comm,
-
-                ip & 0xff,
-                (ip >> 8) & 0xff,
-                (ip >> 16) & 0xff,
-                (ip >> 24) & 0xff,
-                e->port
-            );
-            break;
-        }
-        default:
-            printf(
-                "[UNKNOWN] "
-                "type=%u pid=%u comm=%s\n",
-                e->type,
-                e->tgid,
-                e->comm
-            );
-            break;
-    }
-    fflush(stdout);
     return 0;
 }
 
-int main()
+// 回调函数 —— 将事件交给分析器处理
+static int handle_event(void *ctx, void *data, size_t data_sz)
 {
+    const struct process_event *e = data;
+    analyzer_process(e);
+    return 0;
+}
+
+int main(int argc, char **argv)
+{
+    // 解析 --verbose
+    for (int i = 1; i < argc; i++) {
+        if (!strcmp(argv[i], "--verbose"))
+            analyzer_set_verbose(1);
+    }
+
     libbpf_set_print(libbpf_print_fn);
     struct ebpf_bpf *skel_ebpf = NULL;
     struct file_bpf *skel_file = NULL;
